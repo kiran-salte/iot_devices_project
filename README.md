@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #Device Payload status
 This Django project provides an API to receive payloads from IoT devices, process the payloads, and store the data in a relational database. The system ensures that duplicate payloads with the same 'fCnt' are not stored for the same device and includes functionality for decoding Base64 payload data to hexadecimal format.
 
@@ -48,3 +49,7 @@ Your application will be accessible at 'http://127.0.0.1:8000/'
 - endpoint : '/payloads/'
 - method: 'POST'
 - Description: Submit a payload for a device.
+=======
+# iot_devices_project
+Django Project for Creating Devices and maintaining the payload for IOT Devices 
+>>>>>>> 913ea5f3db05ac9fa7e3991b438c89a277e10d9b
