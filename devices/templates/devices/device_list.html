@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device List</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}">
+</head>
+<body>
+    <h1>Device List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Device EUI</th>
+                <th>Payloads</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for device in devices %}
+                <tr class="device-row">
+                    <td>{{ device.devEUI }}</td>
+                    <td>
+                        <table class="payload-table">
+                            <thead>
+                                <tr>
+                                    <th>fCnt</th>
+                                    <th>status</th>
+                                    <th>Data</th>
+                                    <th>rx_info</th>
+                                    <th>tx_info</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for payload in device.payloads %}
+                                    <tr>
+                                        <td>{{ payload.fCnt }}</td>
+                                        <td>{{ payload.status }}</td>
+                                        <td>{{ payload.data }}</td>
+                                        <td>
+                                            <pre>{{ payload.rx_info | safe }}</pre>
+                                        </td>
+                                        <td>
+                                            <pre>{{ payload.tx_info | safe }}</pre>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
